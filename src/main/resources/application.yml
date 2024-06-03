@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+jwt:
+  secret: c5e05ef9f36817e73ad5876568be42588f22f240e45efbb34a065fa07723446a2b82b03d2fdf5c616311c1baf26dd3dd84892f2f89a58d0e65d700942a05f31b
+
+
+springdoc:
+  packages-to-scan: org.nutrigenie.technopark
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  swagger-ui:
+    path: /
+    disable-swagger-default-url: true
+    display-request-duration: true
+    operations-sorter: alpha
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 43054305
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: nutri
+logging:
+  level:
+    org.hibernate.SQL: debug
